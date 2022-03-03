@@ -1,0 +1,2023 @@
+2022-03-03T13:20:17,390727600+00:00 - rsyslog/run 
+2022-03-03T13:20:17,403559600+00:00 - nginx/run 
+2022-03-03T13:20:17,405846500+00:00 - gunicorn/run 
+Dynamic Python package installation is disabled.
+Starting HTTP server
+rsyslogd: /azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/libuuid.so.1: no version information available (required by rsyslogd)
+2022-03-03T13:20:17,436558700+00:00 - iot-server/run 
+EdgeHubConnectionString and IOTEDGE_IOTHUBHOSTNAME are not set. Exiting...
+2022-03-03T13:20:17,710123900+00:00 - iot-server/finish 1 0
+2022-03-03T13:20:17,713622100+00:00 - Exit code 1 is normal. Not restarting iot-server.
+Starting gunicorn 20.1.0
+Listening at: http://127.0.0.1:31311 (74)
+Using worker: sync
+worker timeout is set to 300
+Booting worker with pid: 102
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:20:19,148 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:20:19,150 | root | INFO | Starting up request id generator
+2022-03-03 13:20:19,150 | root | INFO | Starting up app insight hooks
+2022-03-03 13:20:19,150 | root | INFO | Invoking user's init function
+2022-03-03 13:20:25,174 | root | INFO | Users's init has completed successfully
+2022-03-03 13:20:25,187 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:20:25,187 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpyz5vmrb1
+2022-03-03 13:20:25,191 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:21:01,649 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:21:01 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 13:21:17,796 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:21:17 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 13:23:00,194 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:23:00 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "curl/7.71.1"
+2022-03-03 13:32:02,218 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:32:02 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 13:34:38,863 | root | INFO | Validation Request Content-Type
+2022-03-03 13:34:38,865 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:34:38,881 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:34:38,881 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:34:38 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 102)
+worker timeout is set to 300
+Booting worker with pid: 413
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:35:40,761 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:35:40,762 | root | INFO | Starting up request id generator
+2022-03-03 13:35:40,763 | root | INFO | Starting up app insight hooks
+2022-03-03 13:35:40,763 | root | INFO | Invoking user's init function
+2022-03-03 13:35:47,167 | root | INFO | Users's init has completed successfully
+2022-03-03 13:35:47,169 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:35:47,170 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpypbwcpj_
+2022-03-03 13:35:47,173 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:35:59,069 | root | INFO | Validation Request Content-Type
+2022-03-03 13:35:59,070 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:35:59,074 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:35:59,087 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:35:59 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 413)
+worker timeout is set to 300
+Booting worker with pid: 454
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:37:00,749 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:37:00,751 | root | INFO | Starting up request id generator
+2022-03-03 13:37:00,751 | root | INFO | Starting up app insight hooks
+2022-03-03 13:37:00,751 | root | INFO | Invoking user's init function
+2022-03-03 13:37:06,072 | root | INFO | Users's init has completed successfully
+2022-03-03 13:37:06,083 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:37:06,084 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpiqrpt6q7
+2022-03-03 13:37:06,088 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:39:28,479 | root | INFO | Validation Request Content-Type
+2022-03-03 13:39:28,480 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:39:28,487 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:39:28,495 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:39:28 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 13:39:46,463 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:39:46 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 13:39:52,002 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:13:39:51 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 454)
+worker timeout is set to 300
+Booting worker with pid: 526
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:40:29,881 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:40:29,883 | root | INFO | Starting up request id generator
+2022-03-03 13:40:29,883 | root | INFO | Starting up app insight hooks
+2022-03-03 13:40:29,883 | root | INFO | Invoking user's init function
+2022-03-03 13:40:36,201 | root | INFO | Users's init has completed successfully
+2022-03-03 13:40:36,206 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:40:36,207 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpi1nb0n41
+2022-03-03 13:40:36,213 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:40:43,592 | root | INFO | Validation Request Content-Type
+2022-03-03 13:40:43,592 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:40:43,610 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:40:43,611 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:40:43 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 13:41:04,646 | root | INFO | Validation Request Content-Type
+2022-03-03 13:41:04,647 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:41:04,649 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:41:04,650 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:41:04 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 13:41:25,336 | root | INFO | Validation Request Content-Type
+2022-03-03 13:41:25,336 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:41:25,339 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:41:25,341 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:41:25 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 13:42:20,968 | root | INFO | Validation Request Content-Type
+2022-03-03 13:42:20,969 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:42:20,971 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:42:20,972 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:42:20 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 526)
+worker timeout is set to 300
+Booting worker with pid: 604
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:43:22,566 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:43:22,568 | root | INFO | Starting up request id generator
+2022-03-03 13:43:22,568 | root | INFO | Starting up app insight hooks
+2022-03-03 13:43:22,569 | root | INFO | Invoking user's init function
+2022-03-03 13:43:27,675 | root | INFO | Users's init has completed successfully
+2022-03-03 13:43:27,690 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:43:27,691 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmp79bejx_2
+2022-03-03 13:43:27,696 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:44:03,018 | root | INFO | Validation Request Content-Type
+2022-03-03 13:44:03,019 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:44:03,036 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:44:03,036 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:44:03 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 604)
+worker timeout is set to 300
+Booting worker with pid: 660
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:45:04,463 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:45:04,465 | root | INFO | Starting up request id generator
+2022-03-03 13:45:04,465 | root | INFO | Starting up app insight hooks
+2022-03-03 13:45:04,465 | root | INFO | Invoking user's init function
+2022-03-03 13:45:09,403 | root | INFO | Users's init has completed successfully
+2022-03-03 13:45:09,405 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:45:09,405 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmp2olpbz66
+2022-03-03 13:45:09,411 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:46:05,376 | root | INFO | Validation Request Content-Type
+2022-03-03 13:46:05,378 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:46:05,400 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:46:05,401 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:46:05 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 660)
+worker timeout is set to 300
+Booting worker with pid: 711
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:47:06,866 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:47:06,869 | root | INFO | Starting up request id generator
+2022-03-03 13:47:06,870 | root | INFO | Starting up app insight hooks
+2022-03-03 13:47:06,870 | root | INFO | Invoking user's init function
+2022-03-03 13:47:11,795 | root | INFO | Users's init has completed successfully
+2022-03-03 13:47:11,805 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:47:11,805 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmp8pz4uv08
+2022-03-03 13:47:11,810 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:47:54,618 | root | INFO | Validation Request Content-Type
+2022-03-03 13:47:54,619 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:47:54,623 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:47:54,635 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:47:54 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 711)
+worker timeout is set to 300
+Booting worker with pid: 757
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:48:56,319 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:48:56,320 | root | INFO | Starting up request id generator
+2022-03-03 13:48:56,320 | root | INFO | Starting up app insight hooks
+2022-03-03 13:48:56,321 | root | INFO | Invoking user's init function
+2022-03-03 13:49:01,702 | root | INFO | Users's init has completed successfully
+2022-03-03 13:49:01,712 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:49:01,712 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmppb8xlrvb
+2022-03-03 13:49:01,720 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:49:14,017 | root | INFO | Validation Request Content-Type
+2022-03-03 13:49:14,017 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:49:14,024 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:49:14,024 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:49:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 757)
+worker timeout is set to 300
+Booting worker with pid: 802
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:50:15,504 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:50:15,505 | root | INFO | Starting up request id generator
+2022-03-03 13:50:15,505 | root | INFO | Starting up app insight hooks
+2022-03-03 13:50:15,505 | root | INFO | Invoking user's init function
+2022-03-03 13:50:20,458 | root | INFO | Users's init has completed successfully
+2022-03-03 13:50:20,461 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:50:20,461 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpo8pcjy48
+2022-03-03 13:50:20,466 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 13:50:20,472 | root | INFO | Validation Request Content-Type
+2022-03-03 13:50:20,472 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:50:20,484 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:50:20,485 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:50:20 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 13:51:14,784 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,785 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,788 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,788 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,822 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,823 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,832 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,833 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,844 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,845 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,846 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,846 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,862 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,863 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,864 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,864 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,892 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,892 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,894 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,894 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,906 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,907 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,908 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,909 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,919 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,920 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,922 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,923 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,942 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,943 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,945 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,945 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,955 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,956 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,957 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,958 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+2022-03-03 13:51:14,968 | root | INFO | Validation Request Content-Type
+2022-03-03 13:51:14,969 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 13:51:14,970 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 13:51:14,971 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:13:51:14 +0000] "POST /score HTTP/1.0" 500 23 "-" "ApacheBench/2.3"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 802)
+worker timeout is set to 300
+Booting worker with pid: 860
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 13:52:16,391 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 13:52:16,392 | root | INFO | Starting up request id generator
+2022-03-03 13:52:16,392 | root | INFO | Starting up app insight hooks
+2022-03-03 13:52:16,393 | root | INFO | Invoking user's init function
+2022-03-03 13:52:22,051 | root | INFO | Users's init has completed successfully
+2022-03-03 13:52:22,062 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 13:52:22,062 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpxofpj_10
+2022-03-03 13:52:22,067 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:00:59,628 | root | INFO | Validation Request Content-Type
+2022-03-03 14:00:59,630 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:00:59,646 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:00:59,647 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:00:59 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:01:37,519 | root | INFO | Validation Request Content-Type
+2022-03-03 14:01:37,519 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:01:37,521 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:01:37,526 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:01:37 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:02:18,935 | root | INFO | Validation Request Content-Type
+2022-03-03 14:02:18,935 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:02:18,944 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:02:18,952 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:02:18 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 860)
+worker timeout is set to 300
+Booting worker with pid: 1085
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:03:20,331 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:03:20,333 | root | INFO | Starting up request id generator
+2022-03-03 14:03:20,333 | root | INFO | Starting up app insight hooks
+2022-03-03 14:03:20,333 | root | INFO | Invoking user's init function
+2022-03-03 14:03:25,582 | root | INFO | Users's init has completed successfully
+2022-03-03 14:03:25,592 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:03:25,593 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpbw4qc03d
+2022-03-03 14:03:25,596 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:03:25,605 | root | INFO | Validation Request Content-Type
+2022-03-03 14:03:25,606 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:03:25,618 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:03:25,619 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:03:25 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:03:47,816 | root | INFO | Validation Request Content-Type
+2022-03-03 14:03:47,817 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:03:47,819 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:03:47,820 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:03:47 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:04:15,357 | root | INFO | Validation Request Content-Type
+2022-03-03 14:04:15,358 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:04:15,360 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:04:15,360 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:04:15 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:04:38,699 | root | INFO | Validation Request Content-Type
+2022-03-03 14:04:38,700 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:04:38,701 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:04:38,702 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:04:38 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:05:10,273 | root | INFO | Validation Request Content-Type
+2022-03-03 14:05:10,274 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:05:10,277 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:05:10,277 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:05:10 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:05:29,319 | root | INFO | Validation Request Content-Type
+2022-03-03 14:05:29,319 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:05:29,322 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:05:29,326 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:05:29 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1085)
+worker timeout is set to 300
+Booting worker with pid: 1168
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:06:30,790 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:06:30,791 | root | INFO | Starting up request id generator
+2022-03-03 14:06:30,791 | root | INFO | Starting up app insight hooks
+2022-03-03 14:06:30,792 | root | INFO | Invoking user's init function
+2022-03-03 14:06:36,188 | root | INFO | Users's init has completed successfully
+2022-03-03 14:06:36,199 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:06:36,199 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmp6ojh0drw
+2022-03-03 14:06:36,203 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:06:56,411 | root | INFO | Validation Request Content-Type
+2022-03-03 14:06:56,411 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:06:56,422 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:06:56,430 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:06:56 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:07:10,954 | root | INFO | Validation Request Content-Type
+2022-03-03 14:07:10,955 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:07:10,957 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:07:10,972 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:07:10 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:07:28,498 | root | INFO | Validation Request Content-Type
+2022-03-03 14:07:28,500 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:07:28,501 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:07:28,501 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:07:28 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:07:41,138 | root | INFO | Validation Request Content-Type
+2022-03-03 14:07:41,140 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:07:41,143 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:07:41,143 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:07:41 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:08:30,700 | root | INFO | Validation Request Content-Type
+2022-03-03 14:08:30,701 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:08:30,702 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:08:30,703 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:08:30 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:09:01,237 | root | INFO | Validation Request Content-Type
+2022-03-03 14:09:01,238 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:09:01,241 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:09:01,245 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:09:01 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:09:54,498 | root | INFO | Validation Request Content-Type
+2022-03-03 14:09:54,500 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:09:54,504 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:09:54,506 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:09:54 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+2022-03-03 14:10:27,483 | root | INFO | Validation Request Content-Type
+2022-03-03 14:10:27,484 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:10:27,487 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:10:27,488 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:10:27 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1168)
+worker timeout is set to 300
+Booting worker with pid: 1291
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:11:29,007 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:11:29,009 | root | INFO | Starting up request id generator
+2022-03-03 14:11:29,009 | root | INFO | Starting up app insight hooks
+2022-03-03 14:11:29,010 | root | INFO | Invoking user's init function
+2022-03-03 14:11:34,238 | root | INFO | Users's init has completed successfully
+2022-03-03 14:11:34,248 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:11:34,249 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpsk1z4hgb
+2022-03-03 14:11:34,253 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:25:14,663 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:14:25:14 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 14:25:22,397 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:14:25:22 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 14:27:47,016 | root | INFO | Validation Request Content-Type
+2022-03-03 14:27:47,018 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:27:47,154 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:14:27:47 +0000] "POST /score?verbose=true HTTP/1.0" 200 19 "-" "Go-http-client/1.1"
+2022-03-03 14:28:22,575 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:14:28:22 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+2022-03-03 14:29:50,505 | root | INFO | Validation Request Content-Type
+2022-03-03 14:29:50,505 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:29:50,509 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+TypeError: timer() argument after ** must be a mapping, not list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:29:50,522 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:29:50 +0000] "POST /score HTTP/1.0" 500 53 "-" "python-requests/2.24.0"
+2022-03-03 14:30:18,226 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:14:30:18 +0000] "GET /swagger.json HTTP/1.0" 200 3894 "-" "Go-http-client/1.1"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1291)
+worker timeout is set to 300
+Booting worker with pid: 1683
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:30:51,861 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:30:51,863 | root | INFO | Starting up request id generator
+2022-03-03 14:30:51,863 | root | INFO | Starting up app insight hooks
+2022-03-03 14:30:51,863 | root | INFO | Invoking user's init function
+2022-03-03 14:30:57,235 | root | INFO | Users's init has completed successfully
+2022-03-03 14:30:57,237 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:30:57,238 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpmu4on8sy
+2022-03-03 14:30:57,242 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:31:10,490 | root | INFO | Validation Request Content-Type
+2022-03-03 14:31:10,491 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:31:10,503 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:31:10,503 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:31:10 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1683)
+worker timeout is set to 300
+Booting worker with pid: 1726
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:32:11,874 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:32:11,876 | root | INFO | Starting up request id generator
+2022-03-03 14:32:11,876 | root | INFO | Starting up app insight hooks
+2022-03-03 14:32:11,877 | root | INFO | Invoking user's init function
+2022-03-03 14:32:16,909 | root | INFO | Users's init has completed successfully
+2022-03-03 14:32:16,920 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:32:16,920 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpu77l3471
+2022-03-03 14:32:16,927 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:35:32,580 | root | INFO | Validation Request Content-Type
+2022-03-03 14:35:32,584 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:35:32,590 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:35:32,591 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:35:32 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1726)
+worker timeout is set to 300
+Booting worker with pid: 1828
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:36:33,923 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:36:33,924 | root | INFO | Starting up request id generator
+2022-03-03 14:36:33,924 | root | INFO | Starting up app insight hooks
+2022-03-03 14:36:33,924 | root | INFO | Invoking user's init function
+2022-03-03 14:36:38,820 | root | INFO | Users's init has completed successfully
+2022-03-03 14:36:38,822 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:36:38,823 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpujt6t52f
+2022-03-03 14:36:38,826 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:50:38,637 | root | INFO | Validation Request Content-Type
+2022-03-03 14:50:38,639 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:50:38,656 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:50:38,658 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:50:38 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 1828)
+worker timeout is set to 300
+Booting worker with pid: 2119
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:51:40,021 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:51:40,022 | root | INFO | Starting up request id generator
+2022-03-03 14:51:40,022 | root | INFO | Starting up app insight hooks
+2022-03-03 14:51:40,022 | root | INFO | Invoking user's init function
+2022-03-03 14:51:45,369 | root | INFO | Users's init has completed successfully
+2022-03-03 14:51:45,379 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:51:45,379 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmplgog9ufy
+2022-03-03 14:51:45,384 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:53:26,241 | root | INFO | Validation Request Content-Type
+2022-03-03 14:53:26,241 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:53:26,246 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:53:26,248 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:53:26 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 2119)
+worker timeout is set to 300
+Booting worker with pid: 2182
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:54:27,628 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:54:27,629 | root | INFO | Starting up request id generator
+2022-03-03 14:54:27,629 | root | INFO | Starting up app insight hooks
+2022-03-03 14:54:27,629 | root | INFO | Invoking user's init function
+2022-03-03 14:54:32,712 | root | INFO | Users's init has completed successfully
+2022-03-03 14:54:32,714 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:54:32,714 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmpg9r9qqs9
+2022-03-03 14:54:32,721 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 14:57:54,437 | root | INFO | Validation Request Content-Type
+2022-03-03 14:57:54,438 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 14:57:54,457 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 14:57:54,457 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:14:57:54 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 2182)
+worker timeout is set to 300
+Booting worker with pid: 2281
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 14:58:55,749 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 14:58:55,750 | root | INFO | Starting up request id generator
+2022-03-03 14:58:55,750 | root | INFO | Starting up app insight hooks
+2022-03-03 14:58:55,751 | root | INFO | Invoking user's init function
+2022-03-03 14:59:01,069 | root | INFO | Users's init has completed successfully
+2022-03-03 14:59:01,071 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 14:59:01,071 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmps0t_fpb7
+2022-03-03 14:59:01,075 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 15:01:54,837 | root | INFO | Validation Request Content-Type
+2022-03-03 15:01:54,839 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 15:01:54,844 | root | ERROR | Encountered Exception: Traceback (most recent call last):
+  File "/var/azureml-server/synchronous/routes.py", line 65, in run_scoring
+    response, time_taken_ms = invoke_user_with_timer(service_input, request_headers)
+  File "/var/azureml-server/synchronous/routes.py", line 110, in invoke_user_with_timer
+    result, time_taken_ms = capture_time_taken(user_main.run)(**params)
+  File "/var/azureml-server/synchronous/routes.py", line 92, in timer
+    result = func(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 61, in decorator_input
+    return user_run(*args, **kwargs)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/inference_schema/schema_decorators.py", line 55, in decorator_input
+    args[param_position] = _deserialize_input_argument(args[param_position], param_type, param_name)
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/azureml-server/synchronous/routes.py", line 44, in score_realtime
+    return run_scoring(service_input, request.headers, request.environ.get('REQUEST_ID', '00000000-0000-0000-0000-000000000000'))
+  File "/var/azureml-server/synchronous/routes.py", line 74, in run_scoring
+    raise RunFunctionException(str(exc))
+run_function_exception.RunFunctionException
+
+2022-03-03 15:01:54,858 | root | INFO | 500
+127.0.0.1 - - [03/Mar/2022:15:01:54 +0000] "POST /score HTTP/1.0" 500 23 "-" "python-requests/2.24.0"
+Exception in worker process
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/base.py", line 142, in init_process
+    self.run()
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 125, in run
+    self.run_for_one(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 84, in run_for_one
+    self.wait(timeout)
+  File "/azureml-envs/azureml_49ba0f617eff4c55e72d2b2e631b9577/lib/python3.7/site-packages/gunicorn/workers/sync.py", line 36, in wait
+    ret = select.select(self.wait_fds, [], [], timeout)
+  File "/var/azureml-server/routes_common.py", line 153, in alarm_handler
+    raise TimeoutException(error_message)
+timeout_exception.TimeoutException
+Worker exiting (pid: 2281)
+worker timeout is set to 300
+Booting worker with pid: 2371
+SPARK_HOME not set. Skipping PySpark Initialization.
+Initializing logger
+2022-03-03 15:02:56,552 | root | INFO | Starting up app insights client
+logging socket was found. logging is available.
+logging socket was found. logging is available.
+2022-03-03 15:02:56,553 | root | INFO | Starting up request id generator
+2022-03-03 15:02:56,554 | root | INFO | Starting up app insight hooks
+2022-03-03 15:02:56,554 | root | INFO | Invoking user's init function
+2022-03-03 15:03:03,067 | root | INFO | Users's init has completed successfully
+2022-03-03 15:03:03,089 | root | INFO | Skipping middleware: dbg_model_info as it's not enabled.
+2022-03-03 15:03:03,089 | root | INFO | Skipping middleware: dbg_resource_usage as it's not enabled.
+Generating swagger file: /tmp/tmppxf7kzno
+2022-03-03 15:03:03,097 | root | INFO | Scoring timeout is found from os.environ: 60000 ms
+2022-03-03 15:09:32,887 | root | INFO | Validation Request Content-Type
+2022-03-03 15:09:32,889 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 15:09:33,031 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:15:09:33 +0000] "POST /score?verbose=true HTTP/1.0" 200 19 "-" "Go-http-client/1.1"
+2022-03-03 15:10:42,292 | root | INFO | Validation Request Content-Type
+2022-03-03 15:10:42,293 | root | INFO | Scoring Timer is set to 60.0 seconds
+2022-03-03 15:10:42,454 | root | INFO | 200
+127.0.0.1 - - [03/Mar/2022:15:10:42 +0000] "POST /score?verbose=true HTTP/1.0" 200 19 "-" "Go-http-client/1.1"
